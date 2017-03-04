@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>检查</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/checking.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.css">
+</head>
+<body>
+<div id="header">
+	<div id="header-content">
+		<div id="logo"><img src="img/logo.png"></div>
+		<div id="sign">
+		    <div id="leaf"></div>
+			<a href="##" id="login">登录</a>
+		</div>
+	</div>
+</div>
+<div id="main">
+    <div id="border"></div>
+	<div id="left-main">
+		<div id="nav">
+		    <div id="xitileixing"><span>习题类型</span></div>
+			<ul>
+				<li class="nav-item"><a class="nav-href" to="translation">翻译</a></li>
+				<li class="nav-item"><a class="nav-href" to="choose">选择</a></li>
+				<li class="nav-item"><a class="nav-href" to="fillBlank">填空</a></li>
+				<li class="nav-item"><a class="nav-href" to="wordsToSentence">连词成句</a></li>
+				<li class="nav-item"><a class="nav-href" to="clozeTest">完形填空</a></li>
+			</ul>
+		</div>
+		<div id="left-maincontent">
+			<form id="que">
+				<div class="nav-content">
+				    <div class="que-type"><span>翻译</span>题类型</div>
+					<div class="ques choice" index="1" isCorrect="1">
+						<span class="que-number">1.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="1" value="A" checked="checked">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="1" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="1" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label>
+						<span class="xiala"></span>
+						<span class="jiexi">解析</span>
+						<div class="analysis">
+							<p>正确答案：<span>A</span><span class="upla"></span></p>
+							<p>解析：<span>这里是解析啦啦啦啦</span></p>
+						</div>
+					</div>
+					<div class="ques choice" index="2" isCorrect="0">
+						<span class="que-number">2.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="2" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="2" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="2" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label>
+						<span class="xiala"></span>
+						<span class="jiexi">解析</span>
+						<div class="analysis">
+							<p>正确答案：<span>A</span><span class="upla"></span></p>
+							<p>解析：<span>这里是解析啦啦啦啦</span></p>
+						</div>
+					</div>
+					<div class="ques choice" index="3">
+						<span class="que-number">3.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="3" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="3" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="3" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label>
+						<span class="xiala"></span>
+						<span class="jiexi">解析</span>
+						<div class="analysis">
+							<p>正确答案：<span>A</span><span class="upla"></span></p>
+							<p>解析：<span>这里是解析啦啦啦啦</span></p>
+						</div>
+					</div>
+					<div class="ques choice" index="4">
+						<span class="que-number">4.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="4" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="4" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="4" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+						<span class="xiala"></span>
+						<span class="jiexi">解析</span>
+						<div class="analysis">
+							<p>正确答案：<span>A</span><span class="upla"></span></p>
+							<p>解析：<span>这里是解析啦啦啦啦</span></p>
+						</div>
+					</div>
+					<div class="ques choice" index="5">
+						<span class="que-number">5.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="5" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="5" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="5" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+						<span class="xiala"></span>
+						<span class="jiexi">解析</span>
+						<div class="analysis">
+							<p>正确答案：<span>A</span><span class="upla"></span></p>
+							<p>解析：<span>这里是解析啦啦啦啦</span></p>
+						</div>
+					</div>
+				</div>
+				<div class="nav-content">
+					<div class="que-type"><span>选择</span>题类型</div>
+					<div class="ques choice" index="6">
+						<span class="que-number">6.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="6" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="6" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="6" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+						<span class="xiala"></span>
+						<span class="jiexi">解析</span>
+						<div class="analysis">
+							<p>正确答案：<span>A</span><span class="upla"></span></p>
+							<p>解析：<span>这里是解析啦啦啦啦</span></p>
+						</div>
+					</div>
+					<div class="ques choice" index="7">
+						<span class="que-number">7.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="7" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="7" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="7" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+						<span class="xiala"></span>
+						<span class="jiexi">解析</span>
+						<div class="analysis">
+							<p>正确答案：<span>A</span><span class="upla"></span></p>
+							<p>解析：<span>这里是解析啦啦啦啦</span></p>
+						</div>
+					</div>
+					<div class="ques choice" index="8">
+						<span class="que-number">8.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="8" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="8" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="8" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+						<span class="xiala"></span>
+						<span class="jiexi">解析</span>
+						<div class="analysis">
+							<p>正确答案：<span>A</span><span class="upla"></span></p>
+							<p>解析：<span>这里是解析啦啦啦啦</span></p>
+						</div>
+					</div>
+					<div class="ques choice" index="9">
+						<span class="que-number">9.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="9" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="9" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="9" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+						<span class="xiala"></span>
+						<span class="jiexi">解析</span>
+						<div class="analysis">
+							<p>正确答案：<span>A</span><span class="upla"></span></p>
+							<p>解析：<span>这里是解析啦啦啦啦</span></p>
+						</div>
+					</div>
+					<div class="ques choice" index="10">
+						<span class="que-number">10.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="10" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="10" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="10" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+						<span class="xiala"></span>
+						<span class="jiexi">解析</span>
+						<div class="analysis">
+							<p>正确答案：<span>A</span><span class="upla"></span></p>
+							<p>解析：<span>这里是解析啦啦啦啦</span></p>
+						</div>
+					</div>
+				</div>
+				<div class="nav-content">
+					<div class="que-type"><span>填空</span>题类型</div>
+					<div class="ques choice" index="11">
+						<span class="que-number">11.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="11" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="11" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="11" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+						<span class="xiala"></span>
+						<span class="jiexi">解析</span>
+						<div class="analysis">
+							<p>正确答案：<span>A</span><span class="upla"></span></p>
+							<p>解析：<span>这里是解析啦啦啦啦</span></p>
+						</div>
+					</div>
+					<div class="ques choice" index="12">
+						<span class="que-number">12.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="12" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="12" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="12" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+						<span class="xiala"></span>
+						<span class="jiexi">解析</span>
+						<div class="analysis">
+							<p>正确答案：<span>A</span><span class="upla"></span></p>
+							<p>解析：<span>这里是解析啦啦啦啦</span></p>
+						</div>
+					</div>
+					<div class="ques choice" index="13">
+						<span class="que-number">13.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="13" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="13" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="13" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+						<span class="xiala"></span>
+						<span class="jiexi">解析</span>
+						<div class="analysis">
+							<p>正确答案：<span>A</span><span class="upla"></span></p>
+							<p>解析：<span>这里是解析啦啦啦啦</span></p>
+						</div>
+					</div>
+					<div class="ques choice" index="14">
+						<span class="que-number">14.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="14" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="14" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="14" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+						<span class="xiala"></span>
+						<span class="jiexi">解析</span>
+						<div class="analysis">
+							<p>正确答案：<span>A</span><span class="upla"></span></p>
+							<p>解析：<span>这里是解析啦啦啦啦</span></p>
+						</div>
+					</div>
+					<div class="ques choice" index="15">
+						<span class="que-number">15.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="15" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="15" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="15" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+						<span class="xiala"></span>
+						<span class="jiexi">解析</span>
+						<div class="analysis">
+							<p>正确答案：<span>A</span><span class="upla"></span></p>
+							<p>解析：<span>这里是解析啦啦啦啦</span></p>
+						</div>
+					</div>
+				</div>
+				<div class="nav-content">
+					<div class="que-type"><span>连词成句</span>题类型</div>
+					<div class="ques choice" index="16">
+						<span class="que-number">16.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="16" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="16" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="16" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+						<span class="xiala"></span>
+						<span class="jiexi">解析</span>
+						<div class="analysis">
+							<p>正确答案：<span>A</span><span class="upla"></span></p>
+							<p>解析：<span>这里是解析啦啦啦啦</span></p>
+						</div>
+					</div>
+					<div class="ques choice" index="17">
+						<span class="que-number">17.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="17" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="17" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="17" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+						<span class="xiala"></span>
+						<span class="jiexi">解析</span>
+						<div class="analysis">
+							<p>正确答案：<span>A</span><span class="upla"></span></p>
+							<p>解析：<span>这里是解析啦啦啦啦</span></p>
+						</div>
+					</div>
+					<div class="ques choice" index="18">
+						<span class="que-number">18.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="18" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="18" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="18" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+						<span class="xiala"></span>
+						<span class="jiexi">解析</span>
+						<div class="analysis">
+							<p>正确答案：<span>A</span><span class="upla"></span></p>
+							<p>解析：<span>这里是解析啦啦啦啦</span></p>
+						</div>
+					</div>
+					<div class="ques choice" index="19">
+						<span class="que-number">19.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="19" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="19" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="19" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+						<span class="xiala"></span>
+						<span class="jiexi">解析</span>
+						<div class="analysis">
+							<p>正确答案：<span>A</span><span class="upla"></span></p>
+							<p>解析：<span>这里是解析啦啦啦啦</span></p>
+						</div>
+					</div>
+					<div class="ques choice" index="20">
+						<span class="que-number">20.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="20" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="20" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="20" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+						<span class="xiala"></span>
+						<span class="jiexi">解析</span>
+						<div class="analysis">
+							<p>正确答案：<span>A</span><span class="upla"></span></p>
+							<p>解析：<span>这里是解析啦啦啦啦</span></p>
+						</div>
+					</div>
+				</div> 
+				<div class="nav-content">
+					<div class="que-type"><span>连词成句</span>题类型</div>
+					<div class="ques choice" index="16">
+						<span class="que-number">16.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="16" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="16" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="16" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+						<span class="xiala"></span>
+						<span class="jiexi">解析</span>
+						<div class="analysis">
+							<p>正确答案：<span>A</span><span class="upla"></span></p>
+							<p>解析：<span>这里是解析啦啦啦啦</span></p>
+						</div>
+					</div>
+					<div class="ques choice" index="17">
+						<span class="que-number">17.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="17" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="17" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="17" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+						<span class="xiala"></span>
+						<span class="jiexi">解析</span>
+						<div class="analysis">
+							<p>正确答案：<span>A</span><span class="upla"></span></p>
+							<p>解析：<span>这里是解析啦啦啦啦</span></p>
+						</div>
+					</div>
+					<div class="ques choice" index="18">
+						<span class="que-number">18.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="18" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="18" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="18" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+						<span class="xiala"></span>
+						<span class="jiexi">解析</span>
+						<div class="analysis">
+							<p>正确答案：<span>A</span><span class="upla"></span></p>
+							<p>解析：<span>这里是解析啦啦啦啦</span></p>
+						</div>
+					</div>
+					<div class="ques choice" index="19">
+						<span class="que-number">19.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="19" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="19" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="19" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+						<span class="xiala"></span>
+						<span class="jiexi">解析</span>
+						<div class="analysis">
+							<p>正确答案：<span>A</span><span class="upla"></span></p>
+							<p>解析：<span>这里是解析啦啦啦啦</span></p>
+						</div>
+					</div>
+					<div class="ques choice" index="20">
+						<span class="que-number">20.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="20" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="20" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="20" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+						<span class="xiala"></span>
+						<span class="jiexi">解析</span>
+						<div class="analysis">
+							<p>正确答案：<span>A</span><span class="upla"></span></p>
+							<p>解析：<span>这里是解析啦啦啦啦</span></p>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div id="right-main">
+		<div id="right-bottom">
+			<div id="right-bottom-header">
+			    所得成绩：<span id="que-score">0</span>
+			</div>
+			<div id="que-info">
+			    <span>每题正误情况：</span><br/>
+				<a class="buttons" index="1">1</a>
+				<a class="buttons" index="2">2</a>
+				<a class="buttons" index="3">3</a>
+				<a class="buttons" index="4">4</a>
+				<a class="buttons" index="5">5</a>
+				<a class="buttons" index="6">6</a>
+				<a class="buttons" index="7">7</a>
+				<a class="buttons" index="8">8</a>
+				<a class="buttons" index="9">9</a>
+				<a class="buttons" index="10">10</a>
+				<a class="buttons" index="11">11</a>
+				<a class="buttons" index="12">12</a>
+				<a class="buttons" index="13">13</a>
+				<a class="buttons" index="14">14</a>
+				<a class="buttons" index="15">15</a>
+				<a class="buttons" index="16">16</a>
+				<a class="buttons" index="17">17</a>
+				<a class="buttons" index="18">18</a>
+				<a class="buttons" index="19">19</a>
+				<a class="buttons" index="20">20</a> 
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="js/jquery-2.1.1.js"></script>
+<script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="js/checking.js"></script>
+<script type="text/javascript">
+	$(window).on("load",function(){
+		$.mCustomScrollbar.defaults.scrollButtons.enable=true; //enable scrolling buttons by default
+		$.mCustomScrollbar.defaults.axis="yx"; //enable 2 axis scrollbars by default
+		$("#left-maincontent").mCustomScrollbar({theme:"dark"});
+	});
+</script>
+</body>
+</html>

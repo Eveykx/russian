@@ -1,0 +1,57 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body {
+	background-image: url(../img/background.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+}
+a:hover {
+	text-decoration: none;
+}
+#header {
+	width: 100%;
+	height: 87px;
+	background-color: rgb(96,96,96);
+}
+#header-content {
+	width: 88%;
+	margin: 0 auto;
+	vertical-align: bottom;
+}
+#logo {
+	display: inline-block;
+}
+#logo img {
+	margin-top: 41px;
+}
+#sign {
+	display:inline-block;
+	margin-left: 1055px;
+}
+#sign #leaf {
+	display: inline-block;
+	width: 29px;
+	height: 33px;
+	background-image: url(../img/leaf.png);
+	background-repeat: no-repeat;
+	vertical-align: bottom;
+}
+#sign a , #sign span {
+	font-size: 29px;
+	height: 33px;
+	line-height: 33px;
+	vertical-align: bottom;
+	color: rgb(239,206,134);
+}
+#sign a:hover {
+	color: rgb(220,220,220);
+}
+.nav-item {
+	background-color: rgb(255,253,212);
+}
+.nav-item-selected {
+	background-color: rgb(255,239,176);
+}

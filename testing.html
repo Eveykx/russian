@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>测试</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/testing.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.css">
+</head>
+<body>
+<div id="header">
+	<div id="header-content">
+		<div id="logo"><img src="img/logo.png"></div>
+		<div id="sign">
+		    <div id="leaf"></div>
+			<a href="##" id="login">登录</a>
+		</div>
+	</div>
+</div>
+<div id="main">
+    <div id="border"></div>
+	<div id="left-main">
+		<div id="nav">
+		    <div id="xitileixing"><span>习题类型</span></div>
+			<ul>
+				<li class="nav-item"><a class="nav-href" to="translation">翻译</a></li>
+				<li class="nav-item"><a class="nav-href" to="choose">选择</a></li>
+				<li class="nav-item"><a class="nav-href" to="fillBlank">填空</a></li>
+				<li class="nav-item"><a class="nav-href" to="wordsToSentence">连词成句</a></li>
+				<li class="nav-item"><a class="nav-href" to="clozeTest">完形填空</a></li>
+			</ul>
+		</div>
+		<div id="left-maincontent" class="content">
+			<form id="que" action="personInfo.html">
+				<div class="nav-content">
+			    	<div class="que-type"><span>翻译</span>题类型</div>
+					<div class="ques choice" index="1" >
+						<span class="que-number">1.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="1" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="1" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="1" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+					</div>
+					<div class="ques choice" index="2" >
+						<span class="que-number">2.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="2" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="2" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="2" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+					</div>
+					<div class="ques choice" index="3">
+						<span class="que-number">3.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="3" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="3" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="3" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+					</div>
+					<div class="ques choice" index="4">
+						<span class="que-number">4.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="4" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="4" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="4" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+					</div>
+					<div class="ques choice" index="5">
+						<span class="que-number">5.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="5" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="5" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="5" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+					</div>
+				</div>
+				<div class="nav-content">
+					<div class="que-type"><span>选择</span>题类型</div>
+					<div class="ques multi-choice" index="6">
+						<span class="que-number">6.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="checkbox" name="6" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="checkbox" name="6" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="checkbox" name="6" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+					</div>
+					<div class="ques multi-choice" index="7">
+						<span class="que-number">7.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="checkbox" name="7" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="checkbox" name="7" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="checkbox" name="7" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+					</div>
+					<div class="ques multi-choice" index="8">
+						<span class="que-number">8.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="checkbox" name="8" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="checkbox" name="8" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="checkbox" name="8" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+					</div>
+					<div class="ques multi-choice" index="9">
+						<span class="que-number">9.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="checkbox" name="9" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="checkbox" name="9" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="checkbox" name="9" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+					</div>
+					<div class="ques multi-choice" index="10">
+						<span class="que-number">10.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="checkbox" name="10" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="checkbox" name="10" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="checkbox" name="10" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+					</div>
+				</div>
+				<div class="nav-content">
+					<div class="que-type"><span>填空</span>题类型</div>
+					<div class="ques shortanswer" index="11">
+						<span class="que-number">11.</span>
+						<span class="que">这是第一题（）</span>
+						<br/><span class="answer">作业答案: </span>
+						<input type="text" name="11">
+					</div>
+					<div class="ques shortanswer" index="12">
+						<span class="que-number">12.</span>
+						<span class="que">这是第一题（）</span>
+						<br/><span class="answer">作业答案: </span>
+						<input type="text" name="12">
+					</div>
+					<div class="ques shortanswer" index="13">
+						<span class="que-number">13.</span>
+						<span class="que">这是第一题（）</span>
+						<br/><span class="answer">作业答案: </span>
+						<input type="text" name="13">
+					</div>
+					<div class="ques shortanswer" index="14">
+						<span class="que-number">14.</span>
+						<span class="que">这是第一题（）</span>
+						<br/><span class="answer">作业答案: </span>
+						<input type="text" name="14">
+					</div>
+					<div class="ques shortanswer" index="15">
+						<span class="que-number">15.</span>
+						<span class="que">这是第一题（）</span>
+						<br/><span class="answer">作业答案: </span>
+						<input type="text" name="15">
+					</div>
+				</div>
+				<div class="nav-content">
+					<div class="que-type"><span>连词成句</span>题类型</div>
+					<div class="ques choice" index="16">
+						<span class="que-number">16.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="16" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="16" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="16" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+					</div>
+					<div class="ques choice" index="17">
+						<span class="que-number">17.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="17" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="17" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="17" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+					</div>
+					<div class="ques choice" index="18">
+						<span class="que-number">18.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="18" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="18" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="18" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+					</div>
+					<div class="ques choice" index="19">
+						<span class="que-number">19.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="19" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="19" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="19" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+					</div>
+					<div class="ques choice" index="20">
+						<span class="que-number">20.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="20" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="20" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="20" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+					</div>
+				</div>
+				<div class="nav-content">
+					<div class="que-type" id="clozeTest"><span>完形填空</span>题类型</div>
+					<div class="ques choice" index="21">
+						<span class="que-number">21.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="21" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="21" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="21" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+					</div>
+					<div class="ques choice" index="22">
+						<span class="que-number">22.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="22" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="22" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="22" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+					</div>
+					<div class="ques choice" index="23">
+						<span class="que-number">23.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="23" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="23" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="23" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+					</div>
+					<div class="ques choice" index="24">
+						<span class="que-number">24.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="24" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="24" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="24" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+					</div>
+					<div class="ques choice" index="25">
+						<span class="que-number">25.</span>
+						<span class="que">这是第一题（）</span><br />
+						<label>
+							<input type="radio" name="25" value="A">
+							<span class="ans ans-a">A.</span>
+							<span class="ans-content">aaaa</span>
+						</label><br>
+						<label>
+							<input type="radio" name="25" value="B">
+							<span class="ans ans-b">B.</span>
+							<span class="ans-content">bbb</span>
+						</label><br>
+						<label>
+							<input type="radio" name="25" value="C">
+							<span class="ans ans-c">C.</span>
+							<span class="ans-content">ccc</span>
+						</label><br>
+					</div>
+				</div>
+				<input type="submit" name="submit" style="display:none;" id="submit">
+			</form>
+		</div>
+	</div>
+	<div id="right-main">
+		<div class="time-item">
+			<span id="time-icon"></span>
+			<span id="hour_show">0时</span>
+			<span id="minute_show">0分</span>
+			<span id="second_show">0秒</span>
+		</div>
+		<div id="right-bottom">
+		    <div id="right-bottom-header">
+			    <div id="que-situation">已完成：
+				    <span id="que-already">0</span>/
+				    <span id="que-total"></span>
+			    </div>
+		    </div>
+			<div id="que-info">
+			    <span>已做题目信息：</span><br/>
+				<a class="buttons" href="javascript:void(0);" index="1">1</a>
+				<a class="buttons" href="javascript:void(0);" index="2">2</a>
+				<a class="buttons" href="javascript:void(0);" index="3">3</a>
+				<a class="buttons" href="javascript:void(0);" index="4">4</a>
+				<a class="buttons" href="javascript:void(0);" index="5">5</a>
+				<a class="buttons" href="javascript:void(0);" index="6">6</a>
+				<a class="buttons" href="javascript:void(0);" index="7">7</a>
+				<a class="buttons" href="javascript:void(0);" index="8">8</a>
+				<a class="buttons" href="javascript:void(0);" index="9">9</a>
+				<a class="buttons" href="javascript:void(0);" index="10">10</a>
+				<a class="buttons" href="javascript:void(0);" index="11">11</a>
+				<a class="buttons" href="javascript:void(0);" index="12">12</a>
+				<a class="buttons" href="javascript:void(0);" index="13">13</a>
+				<a class="buttons" href="javascript:void(0);" index="14">14</a>
+				<a class="buttons" href="javascript:void(0);" index="15">15</a>
+				<a class="buttons" href="javascript:void(0);" index="16">16</a>
+				<a class="buttons" href="javascript:void(0);" index="17">17</a>
+				<a class="buttons" href="javascript:void(0);" index="18">18</a>
+				<a class="buttons" href="javascript:void(0);" index="19">19</a>
+				<a class="buttons" href="javascript:void(0);" index="20">20</a> 
+				<a class="buttons" href="javascript:void(0);" index="21">21</a> 
+				<a class="buttons" href="javascript:void(0);" index="22">22</a> 
+				<a class="buttons" href="javascript:void(0);" index="23">23</a> 
+				<a class="buttons" href="javascript:void(0);" index="24">24</a> 
+				<a class="buttons" href="javascript:void(0);" index="25">25</a> 
+			</div>
+			<input type="button" name="button" id="button" value="交卷"  data-toggle="modal" data-target="#demoModalagain">
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="demoModal" data-backdrop="static">
+   <div class="modal-dialog" style="width: 400px;">
+       <div class="modal-content">
+           <div class="modal-header">
+               <h4 class="modal-title" id="demoModalLabel">确认要开始答卷了吗？</h4>
+           </div>
+           <div class="modal-body" style="height: 120px;" id="doyouready">
+           	
+           </div><!-- /.modal-body -->
+           <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal" id="start">开始答卷</button>
+               <button type="button" class="btn btn-default" onclick="window.history.back(-1);">取消答卷</button>
+           </div>
+       </div><!-- /.modal-content -->
+   </div><!-- /.modal -->
+</div>
+
+<div class="modal fade" id="demoModalagain" data-backdrop="static">
+   <div class="modal-dialog" style="width: 400px;">
+       <div class="modal-content">
+           <div class="modal-header">
+               <h4 class="modal-title" id="demoModalLabel">系统提示</h4>
+           </div>
+           <div class="modal-body" style="height: 120px;" id="whensubmit">
+           	
+           </div><!-- /.modal-body -->
+           <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal" onclick="submitTo()">提交答卷</button>
+               <button type="button" class="btn btn-default" onclick="$('#demoModalagain').modal('hide');">取消提交</button>
+           </div>
+       </div><!-- /.modal-content -->
+   </div><!-- /.modal -->
+</div>
+
+<div class="modal fade" id="ModalTimeOut" data-backdrop="static">
+   <div class="modal-dialog" style="width: 400px;">
+       <div class="modal-content">
+           <div class="modal-header">
+               <h4 class="modal-title" id="demoModalLabel">系统提示</h4>
+           </div>
+           <div class="modal-body" style="height: 120px;">
+           	时间到！系统将自动提交试卷！
+           </div><!-- /.modal-body -->
+           <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal" onclick="submitTo()">确认</button>
+           </div>
+       </div><!-- /.modal-content -->
+   </div><!-- /.modal -->
+</div>
+
+<script type="text/javascript" src="js/jquery-2.1.1.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="js/testing.js"></script>
+<script type="text/javascript">
+	function submitTo(){
+		$("#submit").click();
+	}
+	// $("#left-maincontent").mCustomScrollbar({
+	// 	advanced:{ autoScrollOnFocus:true }
+	// });
+</script>
+</body>
+</html>
