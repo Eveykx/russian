@@ -5,7 +5,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.dbutils.handlers.ScalarHandler;
+
 import cn.edu.nenu.clzc.commons.core.AbstractDao;
+import cn.edu.nenu.clzc.commons.core.expandhandler.ExpandBeanHandler;
 import cn.edu.nenu.clzc.commons.core.expandhandler.ExpandBeanListHandler;
 import cn.edu.nenu.clzc.commons.entites.examination.ParamQuestions;
 import cn.edu.nenu.clzc.commons.enumeration.exception.DaoExceptionEnum;
@@ -73,8 +76,30 @@ public class ParamQuestionsDao extends AbstractDao {
 	
 	/**
 	 * 
+	 * @Title: selectQuestionsByType
+	 * @Description: 按照一套试卷的规定题型随即抽取题目
+	 * @return: ParamQuestionsVo
+	 * @throws Exception 
+	 */
+	public ParamQuestionsVo selectQuestionsByType(String questionsType) throws Exception {
+		ParamQuestionsVo paramQuestionsVo = new ParamQuestionsVo();
+		String sql = "SELECT param_questions.id, param_questions.examination_id, param_questions.questions_number, param_questions.questions_title, param_questions.questions_info, param_questions.questions_type_id, param_questions.questions_time, param_questions.questions_is_delete FROM param_questions INNER JOIN param_questions_type ON param_questions.questions_type_id = param_questions_type.id WHERE param_questions_type.questions_type_name = ? AND param_questions.questions_is_delete = '0' ORDER BY RAND() LIMIT 1";
+		Object param = questionsType;
+		try {
+			paramQuestionsVo = query(sql, new ExpandBeanHandler<ParamQuestionsVo>(ParamQuestionsVo.class), param);
+		} catch (ContextException e) {
+			logger.error(DaoExceptionEnum.SelectQuestionsByTypeFaild.getInfo(),e);
+			throw new Exception(DaoExceptionEnum.SelectQuestionsByTypeFaild.getInfo());
+		}
+		return paramQuestionsVo;
+	}
+	
+	
+	
+	/**
+	 * 
 	 * @Title: selectQuestionsByExam
-	 * @Description: 按照试卷查询出所有可见的大题
+	 * @Description: 按照试卷查询出可见的大题
 	 * @return: List<ParamQuestions>
 	 * @throws Exception 
 	 */
@@ -85,11 +110,12 @@ public class ParamQuestionsDao extends AbstractDao {
 		try {
 			list = query(sql, new ExpandBeanListHandler<ParamQuestionsVo>(ParamQuestionsVo.class), param);
 		} catch (ContextException e) {
-			logger.error(DaoExceptionEnum.SelectQuestionsByExamFaild.getInfo(),e);
-			throw new Exception(DaoExceptionEnum.SelectQuestionsByExamFaild.getInfo());
+			logger.error(DaoExceptionEnum.SelectAllQuestionsByExamFaild.getInfo(),e);
+			throw new Exception(DaoExceptionEnum.SelectAllQuestionsByExamFaild.getInfo());
 		}
 		return list;
 	}
+	
 	
 	
 	/**
@@ -115,45 +141,26 @@ public class ParamQuestionsDao extends AbstractDao {
 	
 	/**
 	 * 
-	 * @Title: selectQuestionsByType
-	 * @Description: 根据试题类型查询出所有可见大题
-	 * @return: List<ParamQuestions>
+	 * @Title: checkNumber
+	 * @Description: 检查大题编号是否已经存在
+	 * @return: boolean
 	 * @throws Exception 
 	 */
-	public List<ParamQuestionsVo> selectQuestionsByType(String typeId) throws Exception {
-		List<ParamQuestionsVo> list = new ArrayList<ParamQuestionsVo>();
-		String sql = "SELECT param_questions.id, param_questions.questions_number, param_questions.examination_id, param_questions.questions_title, param_questions.questions_info, param_questions.questions_type_id, param_questions.questions_time, param_questions.questions_is_delete from param_questions INNER JOIN param_questions_type ON param_questions.questions_type_id = param_questions_type.id WHERE param_questions_type.id = ? AND param_questions.questions_is_delete = '0' ORDER BY param_questions.questions_time ASC";
-		Object param = typeId;
+	public boolean checkNumber(String number) throws Exception {
+		boolean flag = false;
+		String sql = "SELECT COUNT(*) from param_questions WHERE questions_number = ?";
+		Object param = number;
+		int i = 0;
 		try {
-			list = query(sql, new ExpandBeanListHandler<ParamQuestionsVo>(ParamQuestionsVo.class), param);
+			i = query(sql, new ScalarHandler<Long>(), param).intValue();
 		} catch (ContextException e) {
-			logger.error(DaoExceptionEnum.SelectQuestionsByTypeFaild.getInfo(),e);
-			throw new Exception(DaoExceptionEnum.SelectQuestionsByTypeFaild.getInfo());
+			logger.error(DaoExceptionEnum.CheckNumberFaild.getInfo(),e);
+			throw new Exception(DaoExceptionEnum.CheckNumberFaild.getInfo());
 		}
-		return list;
+		if(i > 0)
+			flag = true;
+		return flag;
 	}
 	
 	
-	/**
-	 * 
-	 * @Title: selectQuestionsByType
-	 * @Description: 根据试题类型查询出所有大题
-	 * @return: List<ParamQuestions>
-	 * @throws Exception 
-	 */
-	public List<ParamQuestionsVo> selectAllQuestionsByType(String typeId) throws Exception {
-		List<ParamQuestionsVo> list = new ArrayList<ParamQuestionsVo>();
-		String sql = "SELECT param_questions.id, param_questions.questions_number, param_questions.examination_id, param_questions.questions_title, param_questions.questions_info, param_questions.questions_type_id, param_questions.questions_time, param_questions.questions_is_delete from param_questions INNER JOIN param_questions_type ON param_questions.questions_type_id = param_questions_type.id WHERE param_questions_type.id = ? ORDER BY param_questions.questions_time ASC";
-		Object param = typeId;
-		try {
-			list = query(sql, new ExpandBeanListHandler<ParamQuestionsVo>(ParamQuestionsVo.class), param);
-		} catch (ContextException e) {
-			logger.error(DaoExceptionEnum.SelectAllQuestionsByTypeFaild.getInfo(),e);
-			throw new Exception(DaoExceptionEnum.SelectAllQuestionsByTypeFaild.getInfo());
-		}
-		return list;
-	}
-	
-
-	
-}
+}	

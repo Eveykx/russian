@@ -6,6 +6,7 @@ import java.util.List;
 import cn.edu.nenu.clzc.commons.entites.teacher.TeacherExamination;
 import cn.edu.nenu.clzc.commons.exception.ContextException;
 import cn.edu.nenu.clzc.commons.extend.ServiceExtend;
+import cn.edu.nenu.clzc.commons.vo.teacher.TeacherExaminationVo;
 
 /**
  * 
@@ -25,10 +26,10 @@ public class TeacherExaminationService extends ServiceExtend {
 	 * @return: String
 	 * @throws ContextException 
 	 */
-	public String addExamination(TeacherExamination teacherExamination) throws ContextException {
+	public String addExamination(TeacherExaminationVo teacherExaminationVo) throws ContextException {
 		String id = null;
 		try {
-			id = teacherExaminationDao.addExamination(teacherExamination);
+			id = teacherExaminationDao.addExamination(teacherExaminationVo);
 		} catch (Exception e) {
 			logger.error(e);
 			throw new ContextException(e);
@@ -63,10 +64,10 @@ public class TeacherExaminationService extends ServiceExtend {
 	 * @return: List<TeacherExamination>
 	 * @throws: ContextException
 	 */
-	public List<TeacherExamination> selectExaminationByUnit(String unitId, String examinationType, int currentPage) throws ContextException {
-		List<TeacherExamination> list = new ArrayList<TeacherExamination>();
+	public List<TeacherExaminationVo> selectExaminationByUnit(String unitId, int currentPage) throws ContextException {
+		List<TeacherExaminationVo> list = new ArrayList<TeacherExaminationVo>();
 		try {
-			list = teacherExaminationDao.selectExaminationByUnit(unitId, examinationType, currentPage);
+			list = teacherExaminationDao.selectExaminationByUnit(unitId, currentPage);
 		} catch (Exception e) {
 			logger.error(e);
 			throw new ContextException(e);
@@ -82,10 +83,10 @@ public class TeacherExaminationService extends ServiceExtend {
 	 * @return: int
 	 * @throws: ContextException
 	 */
-	public int selectExaminationByUnitPage(String unitId, String examinationType) throws ContextException {
+	public int selectExaminationByUnitPage(String unitId) throws ContextException {
 		int size;
 		try {
-			size = teacherExaminationDao.selectExaminationByUnitPage(unitId, examinationType);
+			size = teacherExaminationDao.selectExaminationByUnitPage(unitId);
 		} catch (Exception e) {
 			logger.error(e);
 			throw new ContextException(e);
@@ -101,10 +102,10 @@ public class TeacherExaminationService extends ServiceExtend {
 	 * @return: List<TeacherExamination>
 	 * @throws ContextException 
 	 */
-	public List<TeacherExamination> selectAllExaminationByUnit(String unitId, String examinationType, int currentPage) throws ContextException {
-		List<TeacherExamination> list = new ArrayList<TeacherExamination>();
+	public List<TeacherExaminationVo> selectAllExaminationByUnit(String unitId, int currentPage) throws ContextException {
+		List<TeacherExaminationVo> list = new ArrayList<TeacherExaminationVo>();
 		try {
-			list = teacherExaminationDao.selectAllExaminationByUnit(unitId, examinationType, currentPage);
+			list = teacherExaminationDao.selectAllExaminationByUnit(unitId, currentPage);
 		} catch (Exception e) {
 			logger.error(e);
 			throw new ContextException(e);
@@ -120,10 +121,10 @@ public class TeacherExaminationService extends ServiceExtend {
 	 * @return: int
 	 * @throws: ContextException
 	 */
-	public int selectAllExaminationByUnitPage(String unitId, String examinationType) throws ContextException {
+	public int selectAllExaminationByUnitPage(String unitId) throws ContextException {
 		int size;
 		try {
-			size = teacherExaminationDao.selectAllExaminationByUnitPage(unitId, examinationType);
+			size = teacherExaminationDao.selectAllExaminationByUnitPage(unitId);
 		} catch (Exception e) {
 			logger.error(e);
 			throw new ContextException(e);
@@ -134,41 +135,60 @@ public class TeacherExaminationService extends ServiceExtend {
 	
 	/**
 	 * 
-	 * @Title: selectExaminationByInfo
-	 * @Description: 根据试题描述模糊分页查询出试题
-	 * @return: List<TeacherExamination>
+	 * @Title: selectExaminationByEdition
+	 * @Description: 根据册id查询出固定的综合测试题
+	 * @return: List<TeacherExaminationVo>
 	 * @throws ContextException 
 	 */
-	public List<TeacherExamination> selectExaminationByInfo(String examinationInfo, String examinationType, int currentPage) throws ContextException {
-		List<TeacherExamination> list = new ArrayList<TeacherExamination>();
+	public List<TeacherExaminationVo> selectExaminationByEdition(String editionId) throws ContextException {
+		List<TeacherExaminationVo> list = new ArrayList<TeacherExaminationVo>();
 		try {
-			list = teacherExaminationDao.selectExaminationByInfo(examinationInfo, examinationType, currentPage);
+			list = teacherExaminationDao.selectExaminationByEdition(editionId);
 		} catch (Exception e) {
 			logger.error(e);
 			throw new ContextException(e);
 		}
 		return list;
 	}
-	
+
 	
 	/**
 	 * 
-	 * @Title: selectExaminationByInfoPage
-	 * @Description: 根据试题描述模糊查询出的试题页数
-	 * @return:int
+	 * @Title: selectIdByInfo
+	 * @Description: 根据试卷描述查找到其id
+	 * @return: String
 	 * @throws ContextException 
 	 */
-	public int selectExaminationByInfoPage(String examinationInfo, String examinationType) throws ContextException {
-		int size = 0;
+	public String selectIdByInfo(String examinationInfo) throws ContextException {
+		String id = null;
 		try {
-			size = teacherExaminationDao.selectExaminationByInfoPage(examinationInfo, examinationType);
+			id = teacherExaminationDao.selectIdByInfo(examinationInfo);
 		} catch (Exception e) {
 			logger.error(e);
 			throw new ContextException(e);
 		}
-		return size;
+		return id;
 	}
 	
-
+	
+	/**
+	 * 
+	 * @Title: selectOneById
+	 * @Description: 根据id查找出对应的试卷
+	 * @return: TeacherExaminationVo
+	 * @throws ContextException 
+	 */
+	public TeacherExaminationVo selectOneById(String id) throws ContextException { 
+		TeacherExaminationVo teacherExaminationVo = new TeacherExaminationVo();
+		try {
+			teacherExaminationVo = teacherExaminationDao.selectOneById(id);
+		} catch (Exception e) {
+			logger.error(e);
+			throw new ContextException(e);
+		}
+		return teacherExaminationVo;
+	}
+	
+	
 	
 }

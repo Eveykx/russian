@@ -49,9 +49,29 @@ public class ParamQuestionsArticleDao extends AbstractDao {
 	}
 	
 	
-//删除的dao方法还没写
+    
+    /**
+     * 
+     * @Title: deleteQuestionsArticle
+     * @Description: 修改大题文章的显示状态
+     * @return: int
+     * @throws: Exception
+     */
+    public int deleteQuestionsArticle(String id, String value) throws Exception {
+    	int temp = 0;
+    	String sql = "UPDATE param_questions_article SET article_is_delete = ? WHERE id = ?";
+    	Object[] params = {value, id};
+    	try {
+			temp = update(sql, params);
+		} catch (ContextException e) {
+			logger.error(DaoExceptionEnum.DeleteQuestionsArticleFaild.getInfo(),e);
+			throw new Exception(DaoExceptionEnum.DeleteQuestionsArticleFaild.getInfo());
+		}
+    	return temp;
+    }
 
-	/**
+	
+    /**
 	 * 
 	* @Title: selectQuestionsArticlesByuestionsArticlesId
 	* @Description: 根据文章大题主键Id来查找答应大题下的文章(这里用一句话描述这个方法的作用)

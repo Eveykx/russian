@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.dbutils.handlers.ScalarHandler;
+
 import cn.edu.nenu.clzc.commons.core.AbstractDao;
 import cn.edu.nenu.clzc.commons.core.expandhandler.ExpandBeanListHandler;
 import cn.edu.nenu.clzc.commons.entites.examination.ParamQuestion;
@@ -110,6 +112,30 @@ public class ParamQuestionDao extends AbstractDao {
 			throw new Exception(DaoExceptionEnum.SelectAllQuestionFaild.getInfo());
 		}
 		return list;
+	}
+	
+	
+	/**
+	 * 
+	 * @Title: checkQuestionNumber
+	 * @Description: 检查小题编号是否重复
+	 * @return: boolean
+	 * @throws Exception 
+	 */
+	public boolean checkQuestionNumber(String questionNumber) throws Exception {
+		boolean flag = false;
+		String sql = "SELECT COUNT(*) from param_question WHERE question_number = ?";
+		Object param = questionNumber;
+		int i = 0;
+		try {
+			i = query(sql, new ScalarHandler<Long>(), param).intValue();
+		} catch (ContextException e) {
+			logger.error(DaoExceptionEnum.CheckQuestionNumberFaild.getInfo(),e);
+			throw new Exception(DaoExceptionEnum.CheckQuestionNumberFaild.getInfo());
+		}
+		if(i > 0) 
+			flag = true;
+		return flag;
 	}
 	
 

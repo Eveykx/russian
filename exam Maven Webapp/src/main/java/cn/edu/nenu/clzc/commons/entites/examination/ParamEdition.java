@@ -13,43 +13,45 @@ public class ParamEdition {
 
     private String editionIsDelete;
 
-    public String getId() {
-        return id;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public String getEditionName() {
-        return editionName;
-    }
+	public String getEditionName() {
+		return editionName;
+	}
 
-    public void setEditionName(String editionName) {
-        this.editionName = editionName;
-    }
+	public void setEditionName(String editionName) {
+		this.editionName = editionName;
+	}
 
-    public String getEditionInfo() {
-        return editionInfo;
-    }
+	public String getEditionInfo() {
+		return editionInfo;
+	}
 
-    public void setEditionInfo(String editionInfo) {
-        this.editionInfo = editionInfo;
-    }
+	public void setEditionInfo(String editionInfo) {
+		this.editionInfo = editionInfo;
+	}
 
-    public Date getEditionTime() {
-        return editionTime;
-    }
+	public Date getEditionTime() {
+		return editionTime;
+	}
 
-    public void setEditionTime(Date editionTime) {
-        this.editionTime = editionTime;
-    }
+	public void setEditionTime(Date editionTime) {
+		this.editionTime = editionTime;
+	}
 
-    public String getEditionIsDelete() {
-        return editionIsDelete;
-    }
+	public String getEditionIsDelete() {
+		return editionIsDelete;
+	}
 
-    public void setEditionIsDelete(String editionIsDelete) {
-        this.editionIsDelete = editionIsDelete;
-    }
+	public void setEditionIsDelete(String editionIsDelete) {
+		this.editionIsDelete = editionIsDelete;
+	}
+
+      
 }

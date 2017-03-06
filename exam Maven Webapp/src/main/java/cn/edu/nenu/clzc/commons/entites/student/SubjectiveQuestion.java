@@ -72,6 +72,8 @@ public class SubjectiveQuestion {
 	public void setAnswerTime(Date answerTime) {
 		this.answerTime = answerTime;
 	}
+
+	
 	
 	
 }

@@ -112,6 +112,8 @@ public class RequestConstant extends SystemConstant{
 
 	public static final String AJAX_GET_BACK_UNIT = "back_unit";
 
+	public static final String AJAX_GET_EDITION_EXAMINATION_QUESTIONS = "back_edition_questions";
+	
 	public static final String DISPATCH_BACK_EXAMINATION = "to_back_exam";
 	
 	public static final String AJAX_GET_BACK_EXAMINATION = "back_exam";
@@ -144,7 +146,7 @@ public class RequestConstant extends SystemConstant{
 
 	public static final String DISPATCH_ADD_QUESTIONS = "to_add_questions";
 	
-	
+	public static final String ADD_QUESTIONS = "add_questions";
 	
 
 	

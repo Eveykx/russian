@@ -24,16 +24,11 @@ import cn.edu.nenu.clzc.commons.exception.ContextException;
 import cn.edu.nenu.clzc.commons.extend.ControllerExtend;
 import cn.edu.nenu.clzc.commons.utils.PageBean;
 import cn.edu.nenu.clzc.commons.vo.examination.ParamEditionVo;
+import cn.edu.nenu.clzc.commons.vo.examination.ParamQuestionVo;
 import cn.edu.nenu.clzc.commons.vo.examination.ParamQuestionsVo;
 import cn.edu.nenu.clzc.commons.vo.examination.ParamUnitVo;
+import cn.edu.nenu.clzc.commons.vo.teacher.TeacherExaminationVo;
 
-/**
- * 
- * @author 我要睡觉了
- * @Title ExaminationBackController.java
- * @Description 试卷部分的Controller
- * @time 2016年12月8日 下午9:47:20
- */
 
 @WebServlet(value=RequestConstant.EXAMINATION_BACK_CONTROLLER)
 public class ExaminationBackController extends ControllerExtend {
@@ -82,7 +77,7 @@ public class ExaminationBackController extends ControllerExtend {
 	/**
 	 * 
 	 * @Title: ajaxGetBackUnit 
-	 * @Description: ajax请求后台显示单元
+	 * @Description: ajax请求后台显示单元和册总测试题
 	 * @return: void
 	 * @throws ServletException 
 	 * @throws IOException 
@@ -93,15 +88,43 @@ public class ExaminationBackController extends ControllerExtend {
 		int currentPage = getInt("currentPage");
 		String editionId = getString("editionId");
 		List<ParamUnitVo> list = new ArrayList<ParamUnitVo>();
+		List<TeacherExaminationVo> examinationList = new ArrayList<TeacherExaminationVo>();
 		try {
 			list = paramUnitService.selectUnitByEdition(editionId, currentPage);
+			examinationList = teacherExaminationService.selectExaminationByEdition(editionId);
 		} catch (ContextException e) {
 			logger.error(ControllerExceptionEnum.BackUnitException.getInfo(),e);
 			to500(ControllerExceptionEnum.BackUnitException.getInfo(), ViewUriConstant.ERROR500);
 		}
 		putJson("unitList", list);
+		putJson("examinationList", examinationList);
 		sendJson();
 	}
+	
+	
+	/**
+	 *  
+	 * @Title: ajaxGetEditionExaminationQuestions
+	 * @Description: ajax请求出后端册总测试题的所有大题
+	 * @return: void
+	 * @throws ServletException 
+	 * @throws IOException 
+	 */
+	@RequestMapping(value=RequestConstant.AJAX_GET_EDITION_EXAMINATION_QUESTIONS)
+	@ResponseBody
+	public void ajaxGetEditionExaminationQuestions() throws ServletException, IOException {
+		String examinationId = getString("examinationId");
+		List<ParamQuestionsVo> list = new ArrayList<ParamQuestionsVo>();
+		try {
+			list = paramQuestionsService.selectAllQuestionsByExam(examinationId);
+		} catch (ContextException e) {
+			logger.error(ControllerExceptionEnum.EditionExaminationQuestionsException.getInfo(),e);
+			to500(ControllerExceptionEnum.EditionExaminationQuestionsException.getInfo(), ViewUriConstant.ERROR500);
+		}
+		putJson("questionsList", list);
+		sendJson();
+	}
+	
 	
 	
 	/**
@@ -121,7 +144,7 @@ public class ExaminationBackController extends ControllerExtend {
 	/**
 	 * 
 	 * @Title: ajaxGetBackExamination
-	 * @Description: ajax请求获取后端试卷展示页面
+	 * @Description: ajax请求获取后端单元试卷展示页面
 	 * @return: void
 	 * @throws ServletException 
 	 * @throws IOException 
@@ -131,12 +154,11 @@ public class ExaminationBackController extends ControllerExtend {
 	public void ajaxGetBackExamination() throws ServletException, IOException {
 		int currentPage = getInt("currentPage");
 		String unitId = getString("unidId");
-		String examinationType = getString("examinationType");
-		List<TeacherExamination> list = new ArrayList<TeacherExamination>();
+		List<TeacherExaminationVo> list = new ArrayList<TeacherExaminationVo>();
 		int size = 0;
 		try {
-			list = teacherExaminationService.selectAllExaminationByUnit(unitId, examinationType, currentPage);
-			size = teacherExaminationService.selectAllExaminationByUnitPage(unitId, examinationType);
+			list = teacherExaminationService.selectAllExaminationByUnit(unitId, currentPage);
+			size = teacherExaminationService.selectAllExaminationByUnitPage(unitId);
 		} catch (ContextException e) {
 			logger.error(ControllerExceptionEnum.BackExaminationException.getInfo(),e);
 			to500(ControllerExceptionEnum.BackExaminationException.getInfo(), ViewUriConstant.ERROR500);
@@ -149,7 +171,7 @@ public class ExaminationBackController extends ControllerExtend {
 	/**
 	 * 
 	 * @Title: dispatchQuestions
-	 * @Description: 跳转到具体试卷页面
+	 * @Description: 跳转到具体单元试卷页面
 	 * @return: void
 	 * @throws IOException 
 	 * @throws ServletException 
@@ -163,17 +185,20 @@ public class ExaminationBackController extends ControllerExtend {
 	/**
 	 * 
 	 * @Title: ajaxGetBackQuestions
-	 * @Description: ajax请求显示一张试卷的所有大题
+	 * @Description: ajax请求显示一张单元试卷的所有大题
 	 * @return: void
 	 * @throws ServletException 
 	 * @throws IOException 
 	 */
 	@RequestMapping(value=RequestConstant.AJAX_GET_BACK_QUESTIONS)
+	@ResponseBody
 	public void ajaxGetBackQuestions() throws ServletException, IOException {
-		String examinationId = getString("examinationId");
+		String id = getString("id");
 		List<ParamQuestionsVo> list = new ArrayList<ParamQuestionsVo>();
+		TeacherExaminationVo teacherExaminationVo = new TeacherExaminationVo();
 		try {
-			list = paramQuestionsService.selectAllQuestionsByExam(examinationId);
+			teacherExaminationVo = teacherExaminationService.selectOneById(id);
+			list = paramQuestionsService.selectQuestionsByType(teacherExaminationVo);
 		} catch (ContextException e) {
 			logger.error(ControllerExceptionEnum.BackQuestionsException.getInfo(),e);
 			to500(ControllerExceptionEnum.BackQuestionsException.getInfo(), ViewUriConstant.ERROR500);
@@ -317,17 +342,21 @@ public class ExaminationBackController extends ControllerExtend {
 	/**
 	 * 
 	 * @Title: addExamination
-	 * @Description: 添加一套试卷的基本信息
+	 * @Description: 添加一套单元试卷的基本信息
 	 * @return: void
 	 * @throws ServletException 
 	 * @throws IOException 
 	 */
 	@RequestMapping(value=RequestConstant.ADD_EXAMINATION)
 	public void addExamination() throws ServletException, IOException {
-		TeacherExamination teacherExamination = getBean(TeacherExamination.class);
-		
+		TeacherExaminationVo teacherExaminationVo = new TeacherExaminationVo();
+		teacherExaminationVo.setExaminationInfo(getString("examinationInfo"));
+		teacherExaminationVo.setUnitId(getString("unitId"));
+		teacherExaminationVo.setExaminationPersistTime(getDouble("examinationPersistTime"));
+		teacherExaminationVo.setExaminationCreateUsername(getString("examinationCreateUsername"));
+		teacherExaminationVo.setExaminationQuestionsType(getString("examinationQuestionsType"));
 		try {
-			teacherExaminationService.addExamination(teacherExamination);
+			teacherExaminationService.addExamination(teacherExaminationVo);
 		} catch (ContextException e) {
 			logger.error(ControllerExceptionEnum.AddExaminationException.getInfo(),e);
 			to500(ControllerExceptionEnum.AddExaminationException.getInfo(), ViewUriConstant.ERROR500);
@@ -372,8 +401,35 @@ public class ExaminationBackController extends ControllerExtend {
 	}
 	
 	
-	
-	
+	/**
+	 * 
+	 * @Title: addQuestions  
+	 * @Description: 在题库中增加一道大题
+	 * @return: void 
+	 * @throws ServletException 
+	 * @throws IOException 
+	 */
+	@RequestMapping(value=RequestConstant.ADD_QUESTIONS)
+	public void addQuestions() throws ServletException, IOException {
+		ParamQuestionsVo paramQuestionsVo = new ParamQuestionsVo();
+		List<ParamQuestionVo> list = new ArrayList<ParamQuestionVo>();
+		int num = getInt("num");
+		for(int i = 0; i < num; i++) {
+			ParamQuestionVo paramQuestionVo = new ParamQuestionVo();
+			paramQuestionVo.setQuestionOutline(getString("questionOutline" + i));
+			paramQuestionVo.setQuestionAnalysis(getString("questionAnalysis" + i));
+			paramQuestionVo.setQuestionAnswer(getString("questionAnswer" + i));
+			paramQuestionVo.setQuestionMark(getDouble("questionMark" + i));
+			list.add(paramQuestionVo);
+		}
+		try {
+			paramQuestionsService.addQuestions(paramQuestionsVo, list);
+		} catch (ContextException e) {
+			logger.error(ControllerExceptionEnum.addQuestionsException.getInfo(),e);
+			to500(ControllerExceptionEnum.addQuestionsException.getInfo(), ViewUriConstant.ERROR500);
+		}
+		requestDispatcher(ViewUriConstant.ADD_QUESTIONS);
+	}
 	
 	
 	

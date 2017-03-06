@@ -1,0 +1,110 @@
+.modal-content{
+	width: 900px;
+	height: 450px;
+	background-color: #fff6ed;
+}
+.modal-header{
+	width: 900px;
+	height: 30px;
+	font-size: 20px;
+	line-height: 30px;
+	text-align: center;
+}
+.modal-body p{
+	margin-left: 70px;
+	margin-top: 20px;
+	font-size: 20px;
+}
+.select{
+	width: 800px;
+	height: 300px;
+	margin: 20px 10px 5px 5px;
+}
+.select_ce,.select_zhang{
+	width: 800px;
+	height: 135px;
+	margin-bottom: 10px;
+	position: relative;
+}
+.select p{
+	font-size: 15px;
+}
+.select input{
+	width: 240px;
+	height: 25px;
+	border-bottom: none;
+	border-left: none;
+	border-right: none;
+	text-align: center;
+}
+.select .jScrollbar3{
+	width: 240px;
+	height: 85px;
+	visibility: hidden;
+}
+input[checked]{
+	background-color:#d3ccb2;
+}
+#ce_1{
+	position: absolute;
+	left: 100px;
+	top: 67px;
+}
+#ce_1_tit{
+	position: absolute;
+	left: 100px;
+	top:40px;
+	width: 240px;
+	height: 25px;
+	text-align: center;
+}
+#ce_2_tit{
+	position: absolute;
+	left: 100px;
+	top:40px;
+	width: 240px;
+	height: 25px;
+	text-align: center;
+}
+#ce_2{
+	position: absolute;
+	left: 100px;
+	top:67px;
+}
+#zhang_1_tit{
+	position: absolute;
+	left: 400px;
+	top:40px;
+	width: 240px;
+	height: 25px;
+	text-align: center;
+}
+#zhang_1{
+	position: absolute;
+	left: 400px;
+	top:67px;
+}
+.select button{
+	width: 110px;
+	height: 35px;
+	position: absolute;
+	right: 20px;
+	top: 40px;
+	font-size: 15px;
+	border: none;
+	background-image: url(../images/zujuan_button.gif);
+	background-size: 100% 100%;
+	border-radius: 20px;
+}
+.menu_title{
+	background-image: url(../images/zujuan_menu.gif);
+	background-size: 100% 100%;
+	border: none;
+}
+.sel_menu{
+	background-color:rgb(234,221,207);
+	border-top: none;
+}
+.sel_bor{
+	border-top: 2px solid #b6aa7c;
+}

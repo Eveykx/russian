@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title>出卷板</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/aaaaa.css" rel="stylesheet">
+
+    
+    
+    
+</head>
+
+<body>
+<div id="main">
+  <div id="div-0">
+  <form action="" method="post" class="basic-grey"  id="question" value="f1" >
+
+			    <label>
+			    <span>unit:</span>
+			    <select name="selection">
+			    <option value="unit1">unit1</option>
+			    <option value="unit2">unit2</option>
+			    </select>
+			    </label>
+
+    		    <label>
+			    <span>times：</span>
+			       <input name="times"  placeholder="请输入文本" type="text">
+			    </label>
+			    <label>
+			    <span>writer：</span>
+			       <input name="writer"  placeholder="请输入文本" type="text">
+			    </label>
+			    <label>
+			    <span>title：</span>
+			       <input name="title"  placeholder="请输入文本" type="text">
+			    </label>
+			    <label>
+			    <span>info：</span>
+			       <input name="info"  placeholder="请输入文本" type="text">
+			    </label>
+			    <label>
+			    <span>answer：</span>
+			       <input name="answer"  placeholder="请输入文本" type="text">
+			    </label>
+			    <label>
+			    <span>mark：</span>
+			       <input name="mark"  placeholder="请输入文本" type="text">
+			    </label>
+			    <label>
+			    <span>artic：</span>
+			       <input name="artic"  placeholder="请输入文本" type="text">
+			    </label>
+			    
+			    <label>
+			    <span>&nbsp;</span>
+			    <input type="button" class="button" onclick="popup_show(1)" value='下一步/增加小题'/>
+			    </label>
+
+    </form>
+
+    
+  </div>
+</div>
+        <div class="sample_popup" id="popup1" style="visibility: hidden; display: none;">
+            <div class="menu_form_header" id="popup_drag1">
+            <img class="menu_form_exit" id="popup_exit1" src="img/close.png"   />
+            试题编辑
+            </div>
+            <div class="menu_form_body">
+                <form method="post" action="">
+			  	<textarea  id='text1' name="artic" placeholder="请输入文本"></textarea>
+			    <label>
+			    <input type="button" onclick="change()" value="确定"/>
+			    <input type="button" onclick='dropElement()' value='删除'>
+			    </label>
+
+                </form>
+            </div>
+        </div>
+
+        <input type="button" name="" class="button2" value="增加大题" onclick="copy()">
+       <input type="button" name="" class="button2" value="删除大题" onclick="dt()">
+
+        <div id="div01"></div>
+
+        <div id="div1" style="width: 100%;height: 445px; display: inline-block;float: left;float: top;"></div>
+
+<script language="javascript">
+var i = 1;
+function change()
+{
+   var txt1=document.getElementById('text1').value
+    var div = document.createElement('div');
+    div.id = 'Elem'+i;
+    var ida=div.id;
+    document.getElementById('div1').appendChild(div);
+    document.getElementById(ida).innerHTML=txt1;
+    i++;
+}
+
+function dropElement(){
+    var aaa = document.getElementById('Elem'+(i-1));
+document.getElementById('div1').removeChild(aaa);
+i--;
+  }
+
+var x = 1;
+function copy() {
+	
+	var bbb = document.getElementById("div-0"); 
+	var ccc = bbb.cloneNode(true); 
+	ccc.setAttribute("id", "div-" + x); 
+	bbb.parentNode.appendChild(ccc); 
+    x++;
+} 
+
+function dt(){
+	var ddd = document.getElementById("div-"+(x-1)); 
+	ddd.parentNode.removeChild(ddd);
+	x--;
+}
+
+</script>
+
+        <script src="js/multi_popup.js"></script>
+
+</body>
+
+</html>

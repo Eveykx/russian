@@ -11,6 +11,7 @@ import cn.edu.nenu.clzc.commons.core.BaseTest;
 import cn.edu.nenu.clzc.commons.exception.ContextException;
 import cn.edu.nenu.clzc.commons.vo.examination.ParamQuestionVo;
 import cn.edu.nenu.clzc.commons.vo.examination.ParamQuestionsVo;
+import cn.edu.nenu.clzc.commons.vo.teacher.TeacherExaminationVo;
 import cn.edu.nenu.clzc.service.examination.ParamQuestionsService;
 
 public class ParamQuestionsServiceTest extends BaseTest {
@@ -19,102 +20,81 @@ public class ParamQuestionsServiceTest extends BaseTest {
 	
 	@Test
 	public void testAddQuestions() throws ContextException {
-		List<ParamQuestionVo> questionlist = new ArrayList<ParamQuestionVo>();
-		String[] questionOutline = {"tt#aa#bb#cc#dd", "tt1#aa1#bb1#cc1#dd1", "tt2#aa2#bb2#cc2#dd2"};
-		String[] questionNumber = {"kk", "kk2", "kk3"};
-		String[] questionAnalysis = {"解析", "解析1", "解析2"};
-		String[] questionAnswer = {"答案", "答案1", "答案2"};
-		Double[] questionMark = {2.0, 2.0, 2.0};			
-		for(int i = 0; i < 3; i++) {
+		List<ParamQuestionVo> list = new ArrayList<ParamQuestionVo>();
+		for(int i = 0; i < 6; i++) {
 			ParamQuestionVo paramQuestionVo = new ParamQuestionVo();
-			paramQuestionVo.setQuestionOutline(questionOutline[i]);
-			paramQuestionVo.setQuestionNumber(questionNumber[i]);
-			paramQuestionVo.setQuestionAnalysis(questionAnalysis[i]);
-			paramQuestionVo.setQuestionAnswer(questionAnswer[i]);
-			paramQuestionVo.setQuestionMark(questionMark[i]);
-			questionlist.add(paramQuestionVo);
+			paramQuestionVo.setQuestionOutline("xx#yy#zz#" + i);
+			paramQuestionVo.setQuestionAnalysis("!!!" + i);
+			paramQuestionVo.setQuestionAnswer("!!!" + i);
+			paramQuestionVo.setQuestionMark(2.0);
+			list.add(paramQuestionVo);
 		}
 		ParamQuestionsVo paramQuestionsVo = new ParamQuestionsVo();
+		paramQuestionsVo.setQuestionsTitle("标题5");
+		paramQuestionsVo.setQuestionsInfo("简介5");
+		paramQuestionsVo.setQuestionsTypeId("a");
+		paramQuestionsVo.setQuestionsArticle("文章5");
+		paramQuestionsVo.setQuestionsArticleInfo("文章简介5");
 		paramQuestionsVo.setExaminationId("1");
-		paramQuestionsVo.setQuestionsNumber("大题编号");
-		paramQuestionsVo.setQuestionsTitle("大题题目");
-		paramQuestionsVo.setQuestionsInfo("大题描述");
-		paramQuestionsVo.setQuestionsTypeId("类型id");
-		paramQuestionsVo.setQuestionsArticle("大题文章");
-		paramQuestionsVo.setQuestionsArticleInfo("大题文章描述");
-		paramQuestionsService.addQuestions(paramQuestionsVo, questionlist);
+		paramQuestionsService.addQuestions(paramQuestionsVo, list);
 	}
 
 	@Test
 	public void testDeleteQuestions() throws ContextException {
-		String id = "748e83b9-0a2e-4af2-ba36-a32af360c421";
-		paramQuestionsService.deleteQuestions(id, "0");
+		paramQuestionsService.deleteQuestions("df83000c-2f37-4f7d-8954-5f010c3848a9", "1");
 	}
 
 	@Test
 	public void testSelectQuestionsByExam() throws ContextException {
-		String examinationId = "1";
-		List<ParamQuestionsVo> list = paramQuestionsService.selectQuestionsByExam(examinationId);
-		System.out.println(list.get(0).getId());
-		List<ParamQuestionVo> questionlist = list.get(0).getQuestionlist();
-		for(int i = 0; i < questionlist.size(); i++) {
-			String[] outline = questionlist.get(i).getOutline();		
-			for(int j = 0; j < outline.length; j++) {
-				System.out.println(outline[j]);
+		List<ParamQuestionsVo> list = new ArrayList<ParamQuestionsVo>();
+		list = paramQuestionsService.selectQuestionsByExam("1");
+		for(int i = 0; i < list.size(); i++) {
+			System.out.println(list.get(i).getQuestionsTitle());
+			List<ParamQuestionVo> questionList = new ArrayList<ParamQuestionVo>();
+			questionList = list.get(i).getQuestionlist();
+			for(int j = 0; j < questionList.size(); j++) {
+				String[] s = questionList.get(j).getOutline();
+				for(int k = 0; k < s.length; k++) {
+					System.out.print(s[k]);
+				}
 			}
 		}
-		
-		System.out.println(list.get(0).getQuestionsArticle());
 	}
 
 	@Test
 	public void testSelectAllQuestionsByExam() throws ContextException {
-		String examinationId = "1";
-		List<ParamQuestionsVo> list = paramQuestionsService.selectAllQuestionsByExam(examinationId);
-		System.out.println(list.get(0).getId());
-		List<ParamQuestionVo> questionlist = list.get(0).getQuestionlist();
-		for(int i = 0; i < questionlist.size(); i++) {
-			String[] outline = questionlist.get(i).getOutline();		
-			for(int j = 0; j < outline.length; j++) {
-				System.out.println(outline[j]);
+		List<ParamQuestionsVo> list = new ArrayList<ParamQuestionsVo>();
+		list = paramQuestionsService.selectAllQuestionsByExam("1");
+		for(int i = 0; i < list.size(); i++) {
+			System.out.println(list.get(i).getQuestionsTitle());
+			List<ParamQuestionVo> questionList = new ArrayList<ParamQuestionVo>();
+			questionList = list.get(i).getQuestionlist();
+			for(int j = 0; j < questionList.size(); j++) {
+				String[] s = questionList.get(j).getOutline();
+				for(int k = 0; k < s.length; k++) {
+					System.out.print(s[k]);
+				}
 			}
 		}
-		
-		System.out.println(list.get(0).getQuestionsArticle());
 	}
 
 	@Test
 	public void testSelectQuestionsByType() throws ContextException {
-		String typeId = "类型id";
-		List<ParamQuestionsVo> list = paramQuestionsService.selectQuestionsByType(typeId);
-		System.out.println(list.get(0).getId());
-		List<ParamQuestionVo> questionlist = list.get(0).getQuestionlist();
-		for(int i = 0; i < questionlist.size(); i++) {
-			String[] outline = questionlist.get(i).getOutline();		
-			for(int j = 0; j < outline.length; j++) {
-				System.out.println(outline[j]);
+		TeacherExaminationVo teacherExaminationVo = new TeacherExaminationVo();
+		teacherExaminationVo.setExaminationQuestionsType("俄译汉#选择题#连词成句");
+		List<ParamQuestionsVo> list = new ArrayList<ParamQuestionsVo>();
+		list = paramQuestionsService.selectQuestionsByType(teacherExaminationVo);
+		for(int i = 0; i < list.size(); i++) {
+			System.out.println(list.get(i).getQuestionsTitle());
+			List<ParamQuestionVo> questionList = new ArrayList<ParamQuestionVo>();
+			questionList = list.get(i).getQuestionlist();
+			for(int j = 0; j < questionList.size(); j++) {
+				String[] s = questionList.get(j).getOutline();
+				for(int k = 0; k < s.length; k++) {
+					System.out.print(s[k]);
+				}
 			}
 		}
-		
-		System.out.println(list.get(0).getQuestionsArticle());
 	}
 
-	@Test
-	public void testSelectAllQuestionsByType() throws ContextException {
-		String typeId = "类型id";
-		List<ParamQuestionsVo> list = paramQuestionsService.selectAllQuestionsByType(typeId);
-		System.out.println(list.get(0).getId());
-		List<ParamQuestionVo> questionlist = list.get(0).getQuestionlist();
-		for(int i = 0; i < questionlist.size(); i++) {
-			String[] outline = questionlist.get(i).getOutline();		
-			for(int j = 0; j < outline.length; j++) {
-				System.out.println(outline[j]);
-			}
-		}
-		
-		System.out.println(list.get(0).getQuestionsArticle());
-
-	}
-
-	
 }

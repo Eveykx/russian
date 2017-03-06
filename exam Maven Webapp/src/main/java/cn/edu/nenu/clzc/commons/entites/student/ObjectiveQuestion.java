@@ -92,7 +92,6 @@ public class ObjectiveQuestion {
 	public void setAnswerTime(Date answerTime) {
 		this.answerTime = answerTime;
 	}
-	
-	
+
 	
 }

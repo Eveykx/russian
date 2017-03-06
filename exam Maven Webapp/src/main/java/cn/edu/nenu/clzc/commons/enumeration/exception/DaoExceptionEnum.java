@@ -76,6 +76,8 @@ public enum DaoExceptionEnum {
 	SelectQuestionFaild("查询所有可见小题失败", 31003),
 	
 	SelectAllQuestionFaild("查询所有小题失败", 31004), 
+	
+	CheckQuestionNumberFaild("检查小题编号是否重复失败", 31005),
 
 	/*小题定义异常枚举结束*/
 	
@@ -88,6 +90,7 @@ public enum DaoExceptionEnum {
 	
 	SelectAllTypeFaild("查找所有题型失败", 32004),
 	
+	SelectByIdlTypeFaild("根据id查找对应类型名失败", 32005),
 	
 	/*试卷类型异常枚举结束*/
 	
@@ -106,9 +109,11 @@ public enum DaoExceptionEnum {
 	
 	SelectAllExaminationByUnitPageFaild("分页查询出所有试卷页数失败", 33006),
 	
-	SelectExaminationByInfoFaild("根据试题描述模糊分页查询出试题失败", 33007),
+	SelectExaminationByEditionFaild("查询出册总综合测试题失败", 33007),
 	
-	SelectExaminationByInfoPageFaild("根据试题描述模糊查询出的试题页数失败", 33008),
+	SelectIdByInfoFaild("根据试卷描述查找到其id", 33008),
+	
+	SelectOneByIdFaild("根据id查找到对应的试卷失败", 33009),
 	/*试卷模块异常枚举结束*/
 	
 	
@@ -138,7 +143,9 @@ public enum DaoExceptionEnum {
 	
 	AddQuestionsArticleFaild("添加大题文章失败",35001),
 	
-	SelectQuestionsArticlesByuestionsArticlesIdFaild("根据文章大题主键Id来查找答应大题下的文章失败",35002),
+	DeleteQuestionsArticleFaild("修改大题文章的显示状态失败", 35002),
+	
+	SelectQuestionsArticlesByuestionsArticlesIdFaild("根据文章大题主键Id来查找答应大题下的文章失败",35003),
 	
 	/*文章主题异常枚举定义结束*/
 
@@ -151,13 +158,14 @@ public enum DaoExceptionEnum {
 	DeleteQuestionsFaild("更改一道大题是否可见失败", 34002),
 	
 
-	SelectQuestionsByExamFaild("按照试卷查询出所有可见的大题失败", 34003),
+	SelectQuestionsByExamFaild("按照一套试卷的规定题型随即抽取题目失败", 34003),
 	
 	SelectAllQuestionsByExamFaild("按照试卷查询出所有的大题失败", 34004),
 	
-	SelectQuestionsByTypeFaild("根据试题类型查询出所有可见大题失败", 34005),
+	SelectQuestionsByTypeFaild("按照一套试卷的规定题型随即抽取题目失败", 34005),
 	
-	SelectAllQuestionsByTypeFaild("根据试题类型查询出所有大题失败", 34006),
+	CheckNumberFaild("检查大题编号是否已存在失败", 34006),
+
 	/* 大题模块定义异常枚举结束*/
 
 

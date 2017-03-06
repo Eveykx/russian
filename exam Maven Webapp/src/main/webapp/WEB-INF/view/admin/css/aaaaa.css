@@ -1,0 +1,128 @@
+div.sample_popup { z-index: +1; }
+div.menu_form_header{
+cursor:move
+}
+div.sample_popup div.menu_form_header
+{
+border-bottom: 0px;
+cursor: default;
+cursor:move;
+width: 500px;
+height: 25px;
+line-height:24px;
+vertical-align: middle;
+background:#34A2DC;
+color:#FFF;
+text-decoration: none;
+font-weight: 900;
+font-size: 13px;
+padding-left:10px;
+overflow:hidden;
+}
+div.sample_popup div.menu_form_body
+{
+border: 3px solid #34A2DC;
+width: 500px;
+height: 500px;
+background:#FFF;
+font-size:12px;
+}
+div.sample_popup img.menu_form_exit
+{
+float: right;
+margin: 5px 5px 0px 0px;
+cursor: pointer;
+}
+
+div.sample_popup form
+{
+margin: 0px;
+padding: 8px 10px 10px 10px;
+}
+.menu_form_body a {
+text-decoration: none;
+}
+
+
+
+
+.basic-grey {
+margin-left:auto;
+margin-right:auto;
+width: 500px;
+height: 500px;
+background: #F7F7F7;
+padding: 25px 15px 25px 10px;
+font: 12px Georgia, "Times New Roman", Times, serif;
+color: #888;
+text-shadow: 1px 1px 1px #FFF;
+border:1px solid #E4E4E4;
+display: inline-block;
+float: left;
+}
+
+.basic-grey label {
+display: block;
+margin: 0px;
+}
+.basic-grey label>span {
+float: left;
+width: 20%;
+text-align: right;
+padding-right: 10px;
+margin-top: 10px;
+color: #888;
+}
+.basic-grey input[type="text"], .basic-grey input[type="email"], .basic-grey textarea, .basic-grey select {
+border: 1px solid #DADADA;
+color: #888;
+height: 30px;
+margin-bottom: 16px;
+margin-right: 6px;
+margin-top: 2px;
+outline: 0 none;
+padding: 3px 3px 3px 5px;
+width: 70%;
+font-size: 12px;
+line-height:15px;
+box-shadow: inset 0px 1px 4px #ECECEC;
+-moz-box-shadow: inset 0px 1px 4px #ECECEC;
+-webkit-box-shadow: inset 0px 1px 4px #ECECEC;
+}
+.basic-grey textarea{
+padding: 5px 3px 3px 5px;
+}
+.basic-grey select {
+
+text-indent: 0.01px;
+text-overflow: '';
+width: 72%;
+height: 35px;
+line-height: 25px;
+}
+.basic-grey textarea{
+height:100px;
+}
+.basic-grey .button {
+background: #7266ba;
+border: none;
+padding: 10px 25px 10px 25px;
+color: #FFF;
+box-shadow: 1px 1px 5px #B6B6B6;
+border-radius: 3px;
+text-shadow: 1px 1px 1px #9E3F3F;
+cursor: pointer;
+}
+.basic-grey .button:hover {
+background: #CF7A7A
+}
+.button2{
+	background: #7266ba;
+border: none;
+padding: 10px 25px 10px 25px;
+color: #FFF;
+box-shadow: 1px 1px 5px #B6B6B6;
+border-radius: 3px;
+text-shadow: 1px 1px 1px #9E3F3F;
+cursor: pointer;
+}

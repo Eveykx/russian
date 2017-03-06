@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.dbutils.handlers.ScalarHandler;
+
 import cn.edu.nenu.clzc.commons.core.AbstractDao;
 import cn.edu.nenu.clzc.commons.core.expandhandler.ExpandBeanListHandler;
 import cn.edu.nenu.clzc.commons.entites.examination.ParamQuestionsType;
@@ -106,6 +108,28 @@ public class ParamQuestionsTypeDao extends AbstractDao {
 		}
 		return list;
 	}
+	
+	
+	/**
+	 * 
+	 * @Title: selectById
+	 * @Description: 根据id查找大题类型名
+	 * @return: String
+	 * @throws Exception 
+	 */
+	public String selectById(String id) throws Exception {
+		String type;
+		String sql = "SELECT questions_type_name from param_questions_type WHERE id = ?";
+		Object param = id;
+		try {
+			type = query(sql, new ScalarHandler<String>(), param);
+		} catch (ContextException e) {
+			logger.error(DaoExceptionEnum.SelectByIdlTypeFaild.getInfo(),e);
+			throw new Exception(DaoExceptionEnum.SelectByIdlTypeFaild.getInfo());
+		}
+		return type;
+	}
+	
 	
 	
 	
