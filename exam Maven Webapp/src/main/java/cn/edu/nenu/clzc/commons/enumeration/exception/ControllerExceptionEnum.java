@@ -67,6 +67,8 @@ public enum ControllerExceptionEnum {
 	 
 	 BackUnitException("ajax请求后端显示单元失败！", 60002),
 	 
+	 EditionExaminationQuestionsException("ajax请求册总测试题的大题失败", 60003),
+	 
 	 BackExaminationException("ajax请求后端显示试卷失败！", 60003),
 	 
 	 BackQuestionsException("ajax请求后端显示具体试卷信息失败！", 60004),
@@ -76,6 +78,8 @@ public enum ControllerExceptionEnum {
 	 AddEditionException("添加一个册失败！", 60006),
 	 
 	 AddUnitException("添加一个单元失败！", 60007),
+	 
+	 addQuestionsException("题库中添加一道大题失败", 60008),
 	 
 	 UpdateEditionException("更改一个册是否可见失败", 60008),
 	 

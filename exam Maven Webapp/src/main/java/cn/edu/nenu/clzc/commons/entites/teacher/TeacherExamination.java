@@ -8,11 +8,13 @@ public class TeacherExamination {
 
     private String unitId;
 
+    private String editionId;
+    
     private Double examinationPersistTime;
 
     private String examinationCreateUsername;
 
-    private String examinationType;
+    private String examinationQuestionsType;
 
     private Date examinationTime;
 
@@ -20,67 +22,77 @@ public class TeacherExamination {
 
     private String examinationInfo;
 
-    public String getId() {
-        return id;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public String getUnitId() {
-        return unitId;
-    }
+	public String getUnitId() {
+		return unitId;
+	}
 
-    public void setUnitId(String unitId) {
-        this.unitId = unitId;
-    }
+	public void setUnitId(String unitId) {
+		this.unitId = unitId;
+	}
 
-    public Double getExaminationPersistTime() {
-        return examinationPersistTime;
-    }
+	public String getEditionId() {
+		return editionId;
+	}
 
-    public void setExaminationPersistTime(Double examinationPersistTime) {
-        this.examinationPersistTime = examinationPersistTime;
-    }
+	public void setEditionId(String editionId) {
+		this.editionId = editionId;
+	}
 
-    public String getExaminationCreateUsername() {
-        return examinationCreateUsername;
-    }
+	public Double getExaminationPersistTime() {
+		return examinationPersistTime;
+	}
 
-    public void setExaminationCreateUsername(String examinationCreateUsername) {
-        this.examinationCreateUsername = examinationCreateUsername;
-    }
+	public void setExaminationPersistTime(Double examinationPersistTime) {
+		this.examinationPersistTime = examinationPersistTime;
+	}
 
-    public String getExaminationType() {
-        return examinationType;
-    }
+	public String getExaminationCreateUsername() {
+		return examinationCreateUsername;
+	}
 
-    public void setExaminationType(String examinationType) {
-        this.examinationType = examinationType;
-    }
+	public void setExaminationCreateUsername(String examinationCreateUsername) {
+		this.examinationCreateUsername = examinationCreateUsername;
+	}
 
-    public Date getExaminationTime() {
-        return examinationTime;
-    }
+	public String getExaminationQuestionsType() {
+		return examinationQuestionsType;
+	}
 
-    public void setExaminationTime(Date examinationTime) {
-        this.examinationTime = examinationTime;
-    }
+	public void setExaminationQuestionsType(String examinationQuestionsType) {
+		this.examinationQuestionsType = examinationQuestionsType;
+	}
 
-    public String getExaminationIsDelete() {
-        return examinationIsDelete;
-    }
+	public Date getExaminationTime() {
+		return examinationTime;
+	}
 
-    public void setExaminationIsDelete(String examinationIsDelete) {
-        this.examinationIsDelete = examinationIsDelete;
-    }
+	public void setExaminationTime(Date examinationTime) {
+		this.examinationTime = examinationTime;
+	}
 
-    public String getExaminationInfo() {
-        return examinationInfo;
-    }
+	public String getExaminationIsDelete() {
+		return examinationIsDelete;
+	}
 
-    public void setExaminationInfo(String examinationInfo) {
-        this.examinationInfo = examinationInfo;
-    }
+	public void setExaminationIsDelete(String examinationIsDelete) {
+		this.examinationIsDelete = examinationIsDelete;
+	}
+
+	public String getExaminationInfo() {
+		return examinationInfo;
+	}
+
+	public void setExaminationInfo(String examinationInfo) {
+		this.examinationInfo = examinationInfo;
+	}
+   
+    
 }

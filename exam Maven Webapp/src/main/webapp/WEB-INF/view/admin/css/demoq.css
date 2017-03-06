@@ -1,0 +1,60 @@
+*{
+	margin: 0; 
+	padding: 0;
+}
+body{ 
+	font-size: 20px; 
+}
+.nav{
+	margin: 100px auto;
+	width: 1200px;
+}
+li{ list-style: none;}
+a{
+	text-decoration: none;
+	font-family: "微软雅黑";
+	color:#FFFFFF;
+}
+
+
+ul.nav li{ 
+	width: 140px; 
+	text-align:center;
+}
+ul.nav>li{ 
+	float: left; 
+	margin-left:10px;
+}   /*一级*/
+ul.nav li a{
+	width: 140px;
+	height: 40px;
+	display: inline-block; 
+	border-radius: 5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:8px;
+	line-height: 40px;
+}   /*一级下的a*/
+ul.nav > li > a{ 
+	background:#6254b2;
+	font-weight: bold;
+}
+ul.nav > li > ul > li a{ 
+	background:#6254b2;
+}    /*二级 a*/
+ul.nav > li a:hover,.choice{   /*定义choice这个类*/
+	background:#2a1f68 !important;
+}
+ul > li > ul{ 
+	display: none;
+}
+ul > li.on > ul{ 
+	display:block;
+}
+ul.nav li{ 
+	position:relative;
+}
+ul.nav > li > ul > li ul{   /*二级菜单包含的ul*/
+	position:absolute; 
+	top: 0; 
+	right: -200px;
+}

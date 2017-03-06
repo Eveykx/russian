@@ -17,59 +17,61 @@ public class StudentTest {
 
     private String studentTestIsDelete;
 
-    public String getId() {
-        return id;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public String getStudentId() {
-        return studentId;
-    }
+	public String getStudentId() {
+		return studentId;
+	}
 
-    public void setStudentId(String studentId) {
-        this.studentId = studentId;
-    }
+	public void setStudentId(String studentId) {
+		this.studentId = studentId;
+	}
 
-    public String getStudentTestType() {
-        return studentTestType;
-    }
+	public String getStudentTestType() {
+		return studentTestType;
+	}
 
-    public void setStudentTestType(String studentTestType) {
-        this.studentTestType = studentTestType;
-    }
+	public void setStudentTestType(String studentTestType) {
+		this.studentTestType = studentTestType;
+	}
 
-    public String getStudentTestInfo() {
-        return studentTestInfo;
-    }
+	public String getStudentTestInfo() {
+		return studentTestInfo;
+	}
 
-    public void setStudentTestInfo(String studentTestInfo) {
-        this.studentTestInfo = studentTestInfo;
-    }
+	public void setStudentTestInfo(String studentTestInfo) {
+		this.studentTestInfo = studentTestInfo;
+	}
 
-    public String getQuestionsId() {
-        return questionsId;
-    }
+	public String getQuestionsId() {
+		return questionsId;
+	}
 
-    public void setQuestionsId(String questionsId) {
-        this.questionsId = questionsId;
-    }
+	public void setQuestionsId(String questionsId) {
+		this.questionsId = questionsId;
+	}
 
-    public Date getStudentTestTime() {
-        return studentTestTime;
-    }
+	public Date getStudentTestTime() {
+		return studentTestTime;
+	}
 
-    public void setStudentTestTime(Date studentTestTime) {
-        this.studentTestTime = studentTestTime;
-    }
+	public void setStudentTestTime(Date studentTestTime) {
+		this.studentTestTime = studentTestTime;
+	}
 
-    public String getStudentTestIsDelete() {
-        return studentTestIsDelete;
-    }
+	public String getStudentTestIsDelete() {
+		return studentTestIsDelete;
+	}
 
-    public void setStudentTestIsDelete(String studentTestIsDelete) {
-        this.studentTestIsDelete = studentTestIsDelete;
-    }
+	public void setStudentTestIsDelete(String studentTestIsDelete) {
+		this.studentTestIsDelete = studentTestIsDelete;
+	}
+
+   
 }

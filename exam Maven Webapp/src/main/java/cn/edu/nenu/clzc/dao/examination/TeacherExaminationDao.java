@@ -9,10 +9,12 @@ import java.util.List;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import cn.edu.nenu.clzc.commons.core.AbstractDao;
+import cn.edu.nenu.clzc.commons.core.expandhandler.ExpandBeanHandler;
 import cn.edu.nenu.clzc.commons.core.expandhandler.ExpandBeanListHandler;
 import cn.edu.nenu.clzc.commons.entites.teacher.TeacherExamination;
 import cn.edu.nenu.clzc.commons.enumeration.exception.DaoExceptionEnum;
 import cn.edu.nenu.clzc.commons.exception.ContextException;
+import cn.edu.nenu.clzc.commons.vo.teacher.TeacherExaminationVo;
 
 /**
  * 
@@ -32,15 +34,16 @@ public class TeacherExaminationDao extends AbstractDao {
 	 * @return: String
 	 * @throws Exception 
 	 */
-	public String addExamination(TeacherExamination teacherExamination) throws Exception {
-		String unitId = teacherExamination.getUnitId();
-		Double examinationPersistTime = teacherExamination.getExaminationPersistTime();
-		String examinationCreateUsername = teacherExamination.getExaminationCreateUsername();
-		String examinationType = teacherExamination.getExaminationType();
+	public String addExamination(TeacherExaminationVo teacherExaminationVo) throws Exception {
+		String unitId = teacherExaminationVo.getUnitId();
+		String editionId = teacherExaminationVo.getEditionId();
+		Double examinationPersistTime = teacherExaminationVo.getExaminationPersistTime();
+		String examinationCreateUsername = teacherExaminationVo.getExaminationCreateUsername();
+		String examinationQuestionsType = teacherExaminationVo.getExaminationQuestionsType();
 		Date examinationTime = new Date();
-		String examinationInfo = teacherExamination.getExaminationInfo();
-		String sql = "INSERT INTO teacher_examination (unit_id, examination_persist_time, examination_create_username, examination_type, examination_time, examination_info) VALUES (?, ?, ?, ?, ?, ?)";
-		Object[] params = {unitId, examinationPersistTime, examinationCreateUsername, examinationType, examinationTime, examinationInfo};
+		String examinationInfo = teacherExaminationVo.getExaminationInfo();
+		String sql = "INSERT INTO teacher_examination (unit_id, edition_id, examination_persist_time, examination_create_username, examination_questions_type, examination_time, examination_info) VALUES (?, ?, ?, ?, ?, ?, ?)";
+		Object[] params = {unitId, editionId, examinationPersistTime, examinationCreateUsername, examinationQuestionsType, examinationTime, examinationInfo};
 		String id = null;
 		try {
 			id = insert(sql, params);
@@ -80,12 +83,12 @@ public class TeacherExaminationDao extends AbstractDao {
 	 * @return: List<TeacherExamination>
 	 * @throws Exception 
 	 */
-	public List<TeacherExamination> selectExaminationByUnit(String unitId, String examinationType, int currentPage) throws Exception {
-		List<TeacherExamination> list = new  ArrayList<TeacherExamination>();
-		String sql = "SELECT * from teacher_examination WHERE unit_id = ? AND examination_type = ? AND examination_is_delete = '0' ORDER BY examination_time ASC LIMIT ?, ?";
-		Object[] params = {unitId, examinationType, (currentPage - 1) * PAGESIZE, PAGESIZE};
+	public List<TeacherExaminationVo> selectExaminationByUnit(String unitId, int currentPage) throws Exception {
+		List<TeacherExaminationVo> list = new  ArrayList<TeacherExaminationVo>();
+		String sql = "SELECT teacher_examination.id, teacher_examination.examination_info, teacher_examination.edition_id, teacher_examination.unit_id, teacher_examination.examination_persist_time, teacher_examination.examination_create_username, teacher_examination.examination_questions_type, teacher_examination.examination_time, teacher_examination.examination_is_delete FROM teacher_examination WHERE teacher_examination.examination_is_delete = '0' AND teacher_examination.unit_id = ? ORDER BY teacher_examination.examination_time ASC LIMIT ?, ?";
+		Object[] params = {unitId, (currentPage - 1) * PAGESIZE, PAGESIZE};
 		try {
-			list = query(sql, new ExpandBeanListHandler<TeacherExamination>(TeacherExamination.class), params);
+			list = query(sql, new ExpandBeanListHandler<TeacherExaminationVo>(TeacherExaminationVo.class), params);
 		} catch (ContextException e) {
 			logger.error(DaoExceptionEnum.SelectExaminationByUnitFaild.getInfo(),e);
 			throw new Exception(DaoExceptionEnum.SelectExaminationByUnitFaild.getInfo());
@@ -101,10 +104,10 @@ public class TeacherExaminationDao extends AbstractDao {
 	 * @return: int
 	 * @throws Exception 
 	 */
-	public int selectExaminationByUnitPage(String unitId, String examinationType) throws Exception {
+	public int selectExaminationByUnitPage(String unitId) throws Exception {
 		int totalRow = 0;
-		String sql = "SELECT COUNT(*) from teacher_examination WHERE unit_id = ? AND examination_type = ? AND examination_is_delete = '0'";
-		Object[] params = {unitId, examinationType};
+		String sql = "SELECT COUNT(*) from teacher_examination WHERE unit_id = ? AND examination_is_delete = '0'";
+		Object[] params = {unitId};
 		try {
 			totalRow = query(sql, new ScalarHandler<Long>(), params).intValue();
 		} catch (ContextException e) {
@@ -122,12 +125,12 @@ public class TeacherExaminationDao extends AbstractDao {
 	 * @return: List<TeacherExamination>
 	 * @throws Exception 
 	 */
-	public List<TeacherExamination> selectAllExaminationByUnit(String unitId, String examinationType, int currentPage) throws Exception {
-		List<TeacherExamination> list = new  ArrayList<TeacherExamination>();
-		String sql = "SELECT * from teacher_examination WHERE unit_id = ? AND examination_type = ? ORDER BY examination_time ASC LIMIT ?, ?";
-		Object[] params = {unitId, examinationType, (currentPage - 1) * PAGESIZE, PAGESIZE};
+	public List<TeacherExaminationVo> selectAllExaminationByUnit(String unitId, int currentPage) throws Exception {
+		List<TeacherExaminationVo> list = new  ArrayList<TeacherExaminationVo>();
+		String sql = "SELECT teacher_examination.id, teacher_examination.examination_info, teacher_examination.edition_id, teacher_examination.unit_id, teacher_examination.examination_persist_time, teacher_examination.examination_create_username, teacher_examination.examination_questions_type, teacher_examination.examination_time, teacher_examination.examination_is_delete FROM teacher_examination WHERE teacher_examination.unit_id = ? ORDER BY teacher_examination.examination_time ASC LIMIT ?, ?";
+		Object[] params = {unitId, (currentPage - 1) * PAGESIZE, PAGESIZE};
 		try {
-			list = query(sql, new ExpandBeanListHandler<TeacherExamination>(TeacherExamination.class), params);
+			list = query(sql, new ExpandBeanListHandler<TeacherExaminationVo>(TeacherExaminationVo.class), params);
 		} catch (ContextException e) {
 			logger.error(DaoExceptionEnum.SelectAllExaminationByUnitFaild.getInfo(),e);
 			throw new Exception(DaoExceptionEnum.SelectAllExaminationByUnitFaild.getInfo());
@@ -143,10 +146,10 @@ public class TeacherExaminationDao extends AbstractDao {
 	 * @return: int
 	 * @throws Exception 
 	 */
-	public int selectAllExaminationByUnitPage(String unitId, String examinationType) throws Exception {
+	public int selectAllExaminationByUnitPage(String unitId) throws Exception {
 		int totalRow = 0;
-		String sql = "SELECT COUNT(*) from teacher_examination WHERE unit_id = ? AND examination_type = ?";
-		Object[] params = {unitId, examinationType};
+		String sql = "SELECT COUNT(*) from teacher_examination WHERE unit_id = ?";
+		Object[] params = {unitId};
 		try {
 			totalRow = query(sql, new ScalarHandler<Long>(), params).intValue();
 		} catch (ContextException e) {
@@ -158,21 +161,21 @@ public class TeacherExaminationDao extends AbstractDao {
 	
 	
 	/**
-	 *  
-	 * @Title: selectExaminationByInfo
-	 * @Description: 根据试题描述模糊分页查询出试题
+	 * 
+	 * @Title: selectExaminationByEdition
+	 * @Description: 根据册id查询出固定的综合测试题
 	 * @return: List<TeacherExamination>
-	 * @throws Exception 
+	 * @throws: Exception
 	 */
-	public List<TeacherExamination> selectExaminationByInfo(String examinationInfo, String examinationType, int currentPage) throws Exception {
-		List<TeacherExamination> list = new ArrayList<TeacherExamination>();
-		String sql = "SELECT * from teacher_examination WHERE examination_info LIKE ? AND examination_type = ? AND examination_is_delete = '0' ORDER BY examination_time ASC LIMIT ?, ?";
-		Object[] params = {"%" + examinationInfo + "%", examinationType, (currentPage - 1) * PAGESIZE, PAGESIZE};
+	public List<TeacherExaminationVo> selectExaminationByEdition(String editionId) throws Exception {
+		List<TeacherExaminationVo> list = new ArrayList<TeacherExaminationVo>();
+		String sql = "SELECT teacher_examination.id, teacher_examination.examination_info, teacher_examination.edition_id, teacher_examination.unit_id, teacher_examination.examination_persist_time, teacher_examination.examination_create_username, teacher_examination.examination_questions_type, teacher_examination.examination_time, teacher_examination.examination_is_delete FROM teacher_examination WHERE teacher_examination.edition_id = ? AND teacher_examination.examination_is_delete = '0' ORDER BY teacher_examination.examination_time ASC";
+		Object param = editionId;
 		try {
-			list = query(sql, new ExpandBeanListHandler<TeacherExamination>(TeacherExamination.class), params);
+			list = query(sql, new ExpandBeanListHandler<TeacherExaminationVo>(TeacherExaminationVo.class), param);
 		} catch (ContextException e) {
-			logger.error(DaoExceptionEnum.SelectExaminationByInfoFaild.getInfo(),e);
-			throw new Exception(DaoExceptionEnum.SelectExaminationByInfoFaild.getInfo());
+			logger.error(DaoExceptionEnum.SelectExaminationByEditionFaild.getInfo(),e);
+			throw new Exception(DaoExceptionEnum.SelectExaminationByEditionFaild.getInfo());
 		}
 		return list;
 	}
@@ -180,24 +183,43 @@ public class TeacherExaminationDao extends AbstractDao {
 	
 	/**
 	 * 
-	 * @Title: selectExaminationByInfoPage
-	 * @Description: 根据试题描述模糊查询出的试题页数
-	 * @return: int
+	 * @Title: selectIdByInfo
+	 * @Description: 根据试卷描述查找到其id
+	 * @return: String
 	 * @throws Exception 
 	 */
-	public int selectExaminationByInfoPage(String examinationInfo, String examinationType) throws Exception {
-		int totalRow = 0;
-		String sql = "SELECT COUNT(*) from teacher_examination WHERE examination_info LIKE ? AND examination_type = ? AND examination_is_delete = '0'";
-		Object[] params = {"%" + examinationInfo + "%", examinationType};
+	public String selectIdByInfo(String examinationInfo) throws Exception {
+		String id = null;
+		String sql = "SELECT id from teacher_examination WHERE examination_info = ?";
+		Object param = examinationInfo;
 		try {
-			totalRow = query(sql, new ScalarHandler<Long>(), params).intValue();
+			id = query(sql, new ScalarHandler<String>(), param);
 		} catch (ContextException e) {
-			logger.error(DaoExceptionEnum.SelectExaminationByInfoPageFaild.getInfo(),e);
-			throw new Exception(DaoExceptionEnum.SelectExaminationByInfoPageFaild.getInfo());
+			logger.error(DaoExceptionEnum.SelectIdByInfoFaild.getInfo(),e);
+			throw new Exception(DaoExceptionEnum.SelectIdByInfoFaild.getInfo());
 		}
-		return size(totalRow);
+		return id;
 	}
 	
 	
+	/**
+	 * 
+	 * @Title: selectOneById
+	 * @Description: 根据id查找出对应的试卷
+	 * @return: TeacherExaminationVo
+	 * @throws Exception 
+	 */
+	public TeacherExaminationVo selectOneById(String id) throws Exception {
+		TeacherExaminationVo teacherExaminationVo = new TeacherExaminationVo();
+		String sql = "SELECT teacher_examination.id, teacher_examination.examination_info, teacher_examination.edition_id, teacher_examination.unit_id, teacher_examination.examination_persist_time, teacher_examination.examination_create_username, teacher_examination.examination_questions_type, teacher_examination.examination_time, teacher_examination.examination_is_delete FROM teacher_examination WHERE teacher_examination.id = ?";
+		Object param = id;
+		try {
+			teacherExaminationVo = query(sql, new ExpandBeanHandler<TeacherExaminationVo>(TeacherExaminationVo.class), param);
+		} catch (ContextException e) {
+			logger.error(DaoExceptionEnum.SelectOneByIdFaild.getInfo(),e);
+			throw new Exception(DaoExceptionEnum.SelectOneByIdFaild.getInfo());
+		}
+		return teacherExaminationVo;
+	}
 	
 }

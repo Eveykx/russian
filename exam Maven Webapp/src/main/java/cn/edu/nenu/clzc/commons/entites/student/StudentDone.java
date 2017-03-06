@@ -13,6 +13,8 @@ public class StudentDone {
 
 	private Date studentDoneTime;
 
+	private String studentDoneQuestionsNumber;
+
 	public String getId() {
 		return id;
 	}
@@ -52,4 +54,15 @@ public class StudentDone {
 	public void setStudentDoneTime(Date studentDoneTime) {
 		this.studentDoneTime = studentDoneTime;
 	}
+
+	public String getStudentDoneQuestionsNumber() {
+		return studentDoneQuestionsNumber;
+	}
+
+	public void setStudentDoneQuestionsNumber(String studentDoneQuestionsNumber) {
+		this.studentDoneQuestionsNumber = studentDoneQuestionsNumber;
+	}
+	
+	
+	
 }

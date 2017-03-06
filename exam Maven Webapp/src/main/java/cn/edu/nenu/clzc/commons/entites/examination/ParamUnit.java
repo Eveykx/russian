@@ -15,51 +15,53 @@ public class ParamUnit {
 
     private String unitIsDelete;
 
-    public String getId() {
-        return id;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public String getUnitName() {
-        return unitName;
-    }
+	public String getUnitName() {
+		return unitName;
+	}
 
-    public void setUnitName(String unitName) {
-        this.unitName = unitName;
-    }
+	public void setUnitName(String unitName) {
+		this.unitName = unitName;
+	}
 
-    public String getUnitInfo() {
-        return unitInfo;
-    }
+	public String getUnitInfo() {
+		return unitInfo;
+	}
 
-    public void setUnitInfo(String unitInfo) {
-        this.unitInfo = unitInfo;
-    }
+	public void setUnitInfo(String unitInfo) {
+		this.unitInfo = unitInfo;
+	}
 
-    public String getEditionId() {
-        return editionId;
-    }
+	public String getEditionId() {
+		return editionId;
+	}
 
-    public void setEditionId(String editionId) {
-        this.editionId = editionId;
-    }
+	public void setEditionId(String editionId) {
+		this.editionId = editionId;
+	}
 
-    public Date getUnitTime() {
-        return unitTime;
-    }
+	public Date getUnitTime() {
+		return unitTime;
+	}
 
-    public void setUnitTime(Date unitTime) {
-        this.unitTime = unitTime;
-    }
+	public void setUnitTime(Date unitTime) {
+		this.unitTime = unitTime;
+	}
 
-    public String getUnitIsDelete() {
-        return unitIsDelete;
-    }
+	public String getUnitIsDelete() {
+		return unitIsDelete;
+	}
 
-    public void setUnitIsDelete(String unitIsDelete) {
-        this.unitIsDelete = unitIsDelete;
-    }
+	public void setUnitIsDelete(String unitIsDelete) {
+		this.unitIsDelete = unitIsDelete;
+	}
+
+    
 }
